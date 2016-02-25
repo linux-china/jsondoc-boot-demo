@@ -4,6 +4,7 @@ import org.jsondoc.core.annotation.Api;
 import org.jsondoc.core.annotation.ApiAuthToken;
 import org.jsondoc.core.annotation.ApiMethod;
 import org.jsondoc.core.annotation.ApiPathParam;
+import org.mvnsearch.jsondoc.document.DocumentationConstants;
 import org.mvnsearch.jsondoc.domain.model.User;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,9 +19,9 @@ import javax.servlet.http.HttpServletRequest;
  * @author linux_china
  */
 @RestController
-@Api(description = "会员服务", name = "UserService", group = "User")
+@Api(description = "会员服务", name = "UserService", group = DocumentationConstants.GROUP_USER)
 @RequestMapping(value = "/user")
-@ApiAuthToken(testtokens = "xxxxx")
+@ApiAuthToken(testtokens = DocumentationConstants.AUTHORIZATION)
 public class UserController {
 
     @RequestMapping("/{id}")
