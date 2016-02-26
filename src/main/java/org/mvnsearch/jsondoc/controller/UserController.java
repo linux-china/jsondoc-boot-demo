@@ -6,11 +6,14 @@ import org.jsondoc.core.annotation.ApiMethod;
 import org.jsondoc.core.annotation.ApiPathParam;
 import org.mvnsearch.jsondoc.document.DocumentationConstants;
 import org.mvnsearch.jsondoc.domain.model.User;
+import org.springframework.util.StreamUtils;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
+import java.io.InputStream;
+import java.nio.charset.Charset;
 
 
 /**
@@ -31,5 +34,13 @@ public class UserController {
         user.setId(id);
         user.setName("jacky");
         return user;
+    }
+
+    @RequestMapping(value = "/statics")
+    @ApiMethod(id = "user statics", description = "根据会员ID查找会员", summary = "get statics")
+    public String statics(HttpServletRequest request) throws Exception {
+        try (InputStream in = this.getClass().getResourceAsStream("/jsondoc/mock/statics.json")) {
+            return StreamUtils.copyToString(in, Charset.forName("utf-8"));
+        }
     }
 }
