@@ -1,14 +1,12 @@
 package org.mvnsearch.jsondoc.controller;
 
-import org.jsondoc.core.annotation.Api;
-import org.jsondoc.core.annotation.ApiAuthToken;
-import org.jsondoc.core.annotation.ApiMethod;
-import org.jsondoc.core.annotation.ApiPathParam;
+import org.jsondoc.core.annotation.*;
 import org.mvnsearch.jsondoc.document.DocumentationConstants;
 import org.mvnsearch.jsondoc.domain.model.User;
 import org.springframework.util.StreamUtils;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.Cookie;
@@ -16,6 +14,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.InputStream;
 import java.nio.charset.Charset;
+
+import static org.hibernate.validator.internal.metadata.raw.ConfigurationSource.API;
 
 
 /**
@@ -33,6 +33,16 @@ public class UserController {
     @ApiMethod(id = "Find_user_one", description = "根据会员ID查找会员", summary = "Gets a book given the book ID")
     public User show(@ApiPathParam(name = "id", description = "user id") @PathVariable Integer id,
                      HttpServletRequest request, HttpServletResponse response) {
+        User user = new User();
+        user.setId(id);
+        user.setName("jacky");
+        return user;
+    }
+
+    @RequestMapping("/detail")
+    @ApiMethod(description = "根据会员ID查找会员详情")
+    public User detail(@ApiQueryParam(name = "id",description = "会员ID") @RequestParam Integer id,
+                       HttpServletRequest request, HttpServletResponse response) {
         User user = new User();
         user.setId(id);
         user.setName("jacky");
