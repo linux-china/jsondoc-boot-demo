@@ -1,6 +1,6 @@
 JSONDoc Demo
 ========================
-JSONDoc demo
+JSONDoc Demo and usage.
 
 ### Usage
 
