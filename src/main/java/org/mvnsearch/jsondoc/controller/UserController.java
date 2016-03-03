@@ -11,7 +11,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.InputStream;
 import java.nio.charset.Charset;
 
@@ -29,7 +31,8 @@ public class UserController {
 
     @RequestMapping("/{id}")
     @ApiMethod(id = "Find_user_one", description = "根据会员ID查找会员", summary = "Gets a book given the book ID")
-    public User show(@ApiPathParam(name = "id", description = "user id") @PathVariable Integer id, HttpServletRequest request) {
+    public User show(@ApiPathParam(name = "id", description = "user id") @PathVariable Integer id,
+                     HttpServletRequest request, HttpServletResponse response) {
         User user = new User();
         user.setId(id);
         user.setName("jacky");
