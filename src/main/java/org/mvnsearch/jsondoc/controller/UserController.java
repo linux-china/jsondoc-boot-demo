@@ -57,9 +57,10 @@ public class UserController {
 
     @RequestMapping(value = "/registration", method = RequestMethod.POST, produces = MediaType.TEXT_PLAIN_VALUE)
     @ApiMethod(description = "会员注册")
-    public String doRegistration(@ApiQueryParam(name = "email", description = "账号邮箱") @RequestParam String email,
-                                 @ApiQueryParam(name = "password", description = "账号密码", format = "\\W{6+}") @RequestParam String password,
-                                 @ApiQueryParam(name = "nick", description = "账号昵称") @RequestParam String nick,
+    @ApiAuthNone
+    public String doRegistration(@ApiQueryParam(name = "email", description = "账号邮箱", format = "email") @RequestParam String email,
+                                 @ApiQueryParam(name = "password", description = "账号密码", format = "password") @RequestParam String password,
+                                 @ApiQueryParam(name = "nick", description = "账号昵称, 4-12位", format = "\\w{4,12}") @RequestParam String nick,
                                  HttpServletRequest request, HttpServletResponse response) {
         return "goood";
     }
