@@ -3,11 +3,9 @@ package org.mvnsearch.jsondoc.controller;
 import org.jsondoc.core.annotation.*;
 import org.mvnsearch.jsondoc.document.DocumentationConstants;
 import org.mvnsearch.jsondoc.domain.model.User;
+import org.springframework.http.MediaType;
 import org.springframework.util.StreamUtils;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
@@ -55,5 +53,14 @@ public class UserController {
         try (InputStream in = this.getClass().getResourceAsStream("/jsondoc/mock/statics.json")) {
             return StreamUtils.copyToString(in, Charset.forName("utf-8"));
         }
+    }
+
+    @RequestMapping(value = "/registration", method = RequestMethod.POST, produces = MediaType.TEXT_PLAIN_VALUE)
+    @ApiMethod(description = "会员注册")
+    public String doRegistration(@ApiQueryParam(name = "email", description = "账号邮箱") @RequestParam String email,
+                                 @ApiQueryParam(name = "password", description = "账号密码", format = "\\W{6+}") @RequestParam String password,
+                                 @ApiQueryParam(name = "nick", description = "账号昵称") @RequestParam String nick,
+                                 HttpServletRequest request, HttpServletResponse response) {
+        return "goood";
     }
 }
