@@ -8,26 +8,36 @@ import org.jsondoc.core.annotation.global.ApiGlobalSection;
  *
  * @author linux_china
  */
+
+/**
+ * global document
+ *
+ * @author linux_china
+ */
 @ApiGlobal(
         sections = {
                 @ApiGlobalSection(
-                        title = "HTTP Verbs",
-                        paragraphs = {
-                                "This is to demonstrate the use of paragraphs",
-                                "/jsondocfile:/jsondoc/global-verbs.html"
-                        }
+                        title = "Domain Diagram",
+                        paragraphs = {"/jsondocfile:/jsondoc/domain-diagram.html"}
                 ),
                 @ApiGlobalSection(
-                        title = "Authentication",
-                        paragraphs = {"/jsondocfile:/jsondoc/global-authentication.html"}
-                ),
-                @ApiGlobalSection(
-                        title = "Headers",
-                        paragraphs = {"/jsondocfile:/jsondoc/global-headers.html"}
+                        title = "Ubiquitous Language",
+                        paragraphs = {"/jsondocfile:/jsondoc/ubiquitous-language.html"}
                 ),
                 @ApiGlobalSection(
                         title = "Status codes",
-                        paragraphs = {"/jsondocfile:/jsondoc/global-responsestatuscodes.html"}
+                        paragraphs = {"/jsondocfile:/jsondoc/http-response-codes.html"}
+                ),
+                @ApiGlobalSection(
+                        title = "Authentication",
+                        paragraphs = {"/jsondocfile:/jsondoc/authentication.html"}
+                ),
+                @ApiGlobalSection(
+                        title = "HTTP Verbs",
+                        paragraphs = {
+                                "HTTP Verbs",
+                                "/jsondocfile:/jsondoc/http-verbs.html"
+                        }
                 )
         }
 )
