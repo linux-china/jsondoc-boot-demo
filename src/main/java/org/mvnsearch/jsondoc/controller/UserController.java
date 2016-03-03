@@ -41,7 +41,7 @@ public class UserController {
 
     @RequestMapping("/detail")
     @ApiMethod(description = "根据会员ID查找会员详情")
-    public User detail(@ApiQueryParam(name = "id",description = "会员ID") @RequestParam Integer id,
+    public User detail(@ApiQueryParam(name = "id", description = "会员ID") @RequestParam Integer id,
                        HttpServletRequest request, HttpServletResponse response) {
         User user = new User();
         user.setId(id);
