@@ -62,6 +62,6 @@ public class UserController {
                                  @ApiQueryParam(name = "password", description = "账号密码", format = "password") @RequestParam String password,
                                  @ApiQueryParam(name = "nick", description = "账号昵称, 4-12位", format = "\\w{4,12}") @RequestParam String nick,
                                  HttpServletRequest request, HttpServletResponse response) {
-        return "goood";
+        return "good";
     }
 }
