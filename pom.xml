@@ -18,7 +18,7 @@
         <spring.version>4.3.6.RELEASE</spring.version>
         <spring-boot.version>1.5.1.RELEASE</spring-boot.version>
         <platform-bom.version>Athens-SR3</platform-bom.version>
-        <jsondoc.version>1.2.16</jsondoc.version>
+        <jsondoc.version>1.2.17-SNAPSHOT</jsondoc.version>
     </properties>
 
     <dependencies>
